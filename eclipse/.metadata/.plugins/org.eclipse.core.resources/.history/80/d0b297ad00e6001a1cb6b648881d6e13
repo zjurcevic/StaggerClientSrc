@@ -1,0 +1,114 @@
+package net.minecraft.client.gui;
+
+import java.awt.Font;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiControls;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiScreenWorking;
+import net.minecraft.client.gui.GuiYesNo;
+import net.minecraft.client.gui.GuiYesNoCallback;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.settings.GameSettings;
+import net.minecraft.world.storage.ISaveFormat;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.darkstorm.minecraft.gui.font.UnicodeFontRenderer;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
+public class StaggerGui extends GuiScreen {
+	
+	private static final Logger field_184868_g = LogManager.getLogger();
+	protected GuiScreen returnGui;
+	protected String mainTitle = "About Stagger";
+	protected ArrayList<String> mainText = new ArrayList<String>();
+	
+	public StaggerGui(GuiScreen p_i46592_1_) {
+		this.returnGui = p_i46592_1_;
+	}
+	
+	/**
+	 * Adds the buttons (and other controls) to the screen in question. Called
+	 * when the GUI is displayed and when the window resizes, the buttonList is
+	 * cleared beforehand.
+	 */
+	public void initGui() {
+		this.drawButtons();
+	}
+	
+	
+	public void drawButtons() {
+		this.buttonList.add(new GuiButton(0, this.width - 2 - (82 * 1), this.height - 22, 78, 18, I18n.format("Main Menu", new Object[0])));
+	}
+
+	/**
+	 * Called by the controls from the buttonList when activated. (Mouse pressed
+	 * for buttons)
+	 **/
+	protected void actionPerformed(GuiButton button) throws IOException {
+		if (button.enabled) {
+			if (button.id == 0) {
+				this.mc.displayGuiScreen(this.returnGui);
+			}
+		}
+	}
+
+	/**
+	 * Draws the screen and all the components in it. Args : mouseX, mouseY,
+	 * renderPartialTicks
+	 **/
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+
+		/** Draws the tiled dirt **/
+		this.drawDefaultBackground();
+
+		/** Draws the Title **/
+		GL11.glPushMatrix();
+		GL11.glScaled(2, 2, 2);
+		this.drawCenteredString(this.fontRendererObj, this.mainTitle, this.width / 4, 5, 0xffffff);
+		GL11.glPopMatrix();
+		
+		mainText.add("This Minecraft client is made for the implementation part of the");
+		mainText.add("main project for the MSc dissertation titled 'Cheating and cheat");
+		mainText.add("detection in online multiplayer games', authored by Zoran Jurcevic");
+		mainText.add("for University of Surrey, August 2020. For any questions concerning");
+		mainText.add("this client or the dissertation in general please contact the author");
+		mainText.add("at the following email address: zoran.jurcevic@gmail.com, thank you.");
+		mainText.add("source on Github website: github.com/zjurcevic. Thank you.");
+		mainText.add(" ");
+		this.drawString(this.fontRendererObj, mainText.get(0), 20, 40 + 10*1, 0xffffff);
+		this.drawString(this.fontRendererObj, mainText.get(1), 20, 40 + 10*2, 0xffffff);
+		this.drawString(this.fontRendererObj, mainText.get(2), 20, 40 + 10*3, 0xffffff);
+		this.drawString(this.fontRendererObj, mainText.get(3), 20, 40 + 10*4, 0xffffff);
+		this.drawString(this.fontRendererObj, mainText.get(4), 20, 40 + 10*5, 0xffffff);
+		this.drawString(this.fontRendererObj, mainText.get(5), 20, 40 + 10*6, 0xffffff);
+		this.drawString(this.fontRendererObj, mainText.get(6), 20, 40 + 10*7, 0xffffff);
+		
+
+		this.drawString(this.fontRendererObj, I18n.format("August 2020,", new Object[0]), 4, this.height - 32, 0xffffff);
+		this.drawString(this.fontRendererObj, I18n.format("University of Surrey", new Object[0]), 4, this.height - 22, 0xffffff);
+		this.drawString(this.fontRendererObj, I18n.format("Guildford, United Kingdom", new Object[0]), 4, this.height - 12, 0xffffff);
+
+
+		super.drawScreen(mouseX, mouseY, partialTicks);
+	}
+
+	/** Called when the mouse is clicked. Args : mouseX, mouseY, clickedButton **/
+	protected void mouseClicked(int mouseX, int mouseY, int mouseButton)
+			throws IOException {
+		super.mouseClicked(mouseX, mouseY, mouseButton);
+	}
+
+	/**
+	 * * Called when a mouse button is released. Args : mouseX, mouseY,
+	 * releaseButton
+	 **/
+	protected void mouseReleased(int mouseX, int mouseY, int state) {
+		super.mouseReleased(mouseX, mouseY, state);
+	}
+	
+}

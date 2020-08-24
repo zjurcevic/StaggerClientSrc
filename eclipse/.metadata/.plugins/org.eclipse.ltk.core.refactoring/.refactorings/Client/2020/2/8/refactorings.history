@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;y2&apos; in &apos;stagger.mods.BowAimbot.aimAtTarget(...)&apos; to &apos;d&apos;&#x0D;&#x0A;- Original project: &apos;Client&apos;&#x0D;&#x0A;- Original element: &apos;stagger.mods.BowAimbot.aimAtTarget(Entity).y2&apos;&#x0D;&#x0A;- Renamed element: &apos;y2&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;y2&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;stagger.mods{BowAimbot.java[BowAimbot~aimAtTarget~QEntity;@y2!1799!1847!1806!1807!D!0!false" name="d" references="true" stamp="1582063636030" version="1.0"/>
+</session>
