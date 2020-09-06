@@ -10,6 +10,7 @@ Tools and sources used to create this client are:
  - Minecraft version 1.8.8 https://www.minecraft.net/
  - Mod Coder Pack http://www.modcoderpack.com/
  - Slick2D http://slick.ninjacave.com/
+ - DarkStorm GUI API for Minecraft https://github.com/DarkStorm652/Minecraft-GUI-API
 
 Please do not use this client for malicious purposes. 
 Thank you. 
